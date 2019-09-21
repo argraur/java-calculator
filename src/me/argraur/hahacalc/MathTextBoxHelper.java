@@ -23,9 +23,6 @@ class MathTextBoxHelper {
     void addNumber(int a) {
         addText(String.valueOf(a));
         dec[curr] = dec[curr] + a;
-        // TODO: Remove this
-        System.out.println("addNumber: Current decimal: " + dec[curr]);
-        System.out.println("addNumber: Curr: " + curr);
     }
 
     void addSymbol(String symb) {
@@ -35,8 +32,6 @@ class MathTextBoxHelper {
         addText(" " + symb + " ");
         this.symb[curr] = symb;
         curr++;
-        // TODO: Remove this
-        System.out.println("addSymbol: Curr: " + curr);
     }
 
     void addZero() {
@@ -44,38 +39,23 @@ class MathTextBoxHelper {
     }
 
     void result() {
-        float res = 0;
-        for (int i = 0; i <= curr; i++) {
-            float first;
+        float res = 0, first;
+        for (int i = 0; i < curr; i++) {
             if (i == 0) first = Float.parseFloat(dec[i]); else first = res;
-            if (i < curr) {
-                // TODO: Remove this
-                System.out.println("i is less than curr!");
-                switch (symb[i]) {
-                    case "/":
-                        // TODO: Remove this
-                        System.out.println("Dividing!");
-                        if (Float.parseFloat(dec[i + 1]) == 0) { errorOut("Can't divide by zero!"); return; }
-                        res = first / Float.parseFloat(dec[i + 1]);
-                        break;
-                    case "*":
-                        // TODO: Remove this
-                        System.out.println("Multiplying!");
-                        res = first * Float.parseFloat(dec[i + 1]);
-                        break;
-                    case "-":
-                        // TODO: Remove this
-                        System.out.println("-");
-                        res = first - Float.parseFloat(dec[i + 1]);
-                        break;
-                    case "+":
-                        // TODO: Remove this
-                        System.out.println("+");
-                        res = first + Float.parseFloat(dec[i + 1]);
-                        break;
-                    default:
-                        errorOut("Wtf");
-                }
+            switch (symb[i]) {
+                case "/":
+                    if (Float.parseFloat(dec[i + 1]) == 0) { errorOut("Can't divide by zero!"); return; }
+                    res = first / Float.parseFloat(dec[i + 1]);
+                    break;
+                case "*":
+                    res = first * Float.parseFloat(dec[i + 1]);
+                    break;
+                case "-":
+                    res = first - Float.parseFloat(dec[i + 1]);
+                    break;
+                case "+":
+                    res = first + Float.parseFloat(dec[i + 1]);
+                    break;
             }
         }
         addText(" = " + res);
@@ -83,8 +63,6 @@ class MathTextBoxHelper {
     }
 
     void reset() {
-        // TODO: Remove this
-        System.out.println("Reset!");
         gui.buttonLock(false);
         dec = new String[10];
         symb = new String[10];
