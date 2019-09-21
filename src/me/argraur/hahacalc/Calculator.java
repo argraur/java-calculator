@@ -4,7 +4,7 @@ class Calculator extends GUI {
     private String[] dec = new String[10], symb = new String[10];
     private int curr = 0;
 
-    Calculator() {
+    private Calculator() {
         // GUI constructor
         super();
 
@@ -89,5 +89,11 @@ class Calculator extends GUI {
     private void errorZero() {
         mathField.setText("Can't divide by zero!");
         buttonLock(true);
+    }
+
+    public static void main(String[] args) {
+        Calculator calc = new Calculator();
+        calc.setTitle("Calculator");
+        calc.setVisible(true);
     }
 }

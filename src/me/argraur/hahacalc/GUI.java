@@ -40,6 +40,11 @@ public class GUI extends JDialog {
                 System.exit(0);
             }
         });
+
+        pack();
+        setSize(350, 350);
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        setLocation(dim.width / 2 - getSize().width / 2, dim.height / 2 - getSize().height / 2);
     }
 
     void buttonLock(boolean lock) {
@@ -58,15 +63,5 @@ public class GUI extends JDialog {
         a0Button.setEnabled(!lock);
         eqButton.setEnabled(!lock);
         plButton.setEnabled(!lock);
-    }
-
-    public static void main(String[] args) {
-        Calculator calc = new Calculator();
-        calc.pack();
-        calc.setTitle("Calculator");
-        calc.setSize(350, 350);
-        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-        calc.setLocation(dim.width / 2 - calc.getSize().width / 2, dim.height / 2 - calc.getSize().height / 2);
-        calc.setVisible(true);
     }
 }
