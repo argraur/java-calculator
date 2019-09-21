@@ -11,23 +11,23 @@ import java.awt.event.WindowEvent;
 
 public class HahaCalcGUI extends JDialog {
     private JPanel contentPane;
-    private JButton a7Button;
-    private JButton a8Button;
-    private JButton a9Button;
-    private JButton divButton;
-    private JButton a4Button;
-    private JButton a5Button;
-    private JButton a6Button;
-    private JButton mpButton;
-    private JButton a1Button;
-    private JButton a2Button;
-    private JButton a3Button;
-    private JButton minButton;
-    private JButton a0Button;
-    private JButton eqButton;
+    private JButton a1Button,
+                    a2Button,
+                    a3Button,
+                    a4Button,
+                    a5Button,
+                    a6Button,
+                    a7Button,
+                    a8Button,
+                    a9Button,
+                    a0Button,
+                    minButton,
+                    mpButton,
+                    divButton,
+                    eqButton,
+                    plButton,
+                    cButton;
     private JTextField mathField;
-    private JButton plButton;
-    private JButton cButton;
 
     private HahaCalcGUI() {
         setContentPane(contentPane);
