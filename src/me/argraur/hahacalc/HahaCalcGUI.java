@@ -4,6 +4,8 @@ import javax.swing.JPanel;
 import javax.swing.JDialog;
 import javax.swing.JButton;
 import javax.swing.JTextField;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
@@ -27,7 +29,7 @@ public class HahaCalcGUI extends JDialog {
     private JButton plButton;
     private JButton cButton;
 
-    HahaCalcGUI() {
+    private HahaCalcGUI() {
         setContentPane(contentPane);
         setModal(true);
         MathTextBoxHelper textBox = new MathTextBoxHelper(mathField, this);
@@ -73,5 +75,15 @@ public class HahaCalcGUI extends JDialog {
         a0Button.setEnabled(!lock);
         eqButton.setEnabled(!lock);
         plButton.setEnabled(!lock);
+    }
+
+    public static void main(String[] args) {
+        HahaCalcGUI gui = new HahaCalcGUI();
+        gui.pack();
+        gui.setTitle("HahaCalc");
+        gui.setSize(350, 350);
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        gui.setLocation(dim.width / 2 - gui.getSize().width / 2, dim.height / 2 - gui.getSize().height / 2);
+        gui.setVisible(true);
     }
 }
