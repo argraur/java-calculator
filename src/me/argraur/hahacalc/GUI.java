@@ -9,9 +9,9 @@ import java.awt.Toolkit;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
-public class HahaCalcGUI extends JDialog {
+public class GUI extends JDialog {
     private JPanel contentPane;
-    private JButton a1Button,
+    public JButton a1Button,
                     a2Button,
                     a3Button,
                     a4Button,
@@ -27,28 +27,11 @@ public class HahaCalcGUI extends JDialog {
                     eqButton,
                     plButton,
                     cButton;
-    private JTextField mathField;
+    public JTextField mathField;
 
-    private HahaCalcGUI() {
+    GUI() {
         setContentPane(contentPane);
         setModal(true);
-        MathTextBoxHelper textBox = new MathTextBoxHelper(mathField, this);
-        a1Button.addActionListener(actionEvent -> textBox.addNumber(1));
-        a2Button.addActionListener(actionEvent -> textBox.addNumber(2));
-        a3Button.addActionListener(actionEvent -> textBox.addNumber(3));
-        a4Button.addActionListener(actionEvent -> textBox.addNumber(4));
-        a5Button.addActionListener(actionEvent -> textBox.addNumber(5));
-        a6Button.addActionListener(actionEvent -> textBox.addNumber(6));
-        a7Button.addActionListener(actionEvent -> textBox.addNumber(7));
-        a8Button.addActionListener(actionEvent -> textBox.addNumber(8));
-        a9Button.addActionListener(actionEvent -> textBox.addNumber(9));
-        a0Button.addActionListener(actionEvent -> textBox.addZero());
-        divButton.addActionListener(actionEvent -> textBox.addSymbol("/"));
-        cButton.addActionListener(actionEvent -> textBox.reset());
-        mpButton.addActionListener(actionEvent -> textBox.addSymbol("*"));
-        minButton.addActionListener(actionEvent -> textBox.addSymbol("-"));
-        plButton.addActionListener(actionEvent -> textBox.addSymbol("+"));
-        eqButton.addActionListener(actionEvent -> textBox.result());
 
         // call onCancel() when cross is clicked
         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
@@ -78,12 +61,12 @@ public class HahaCalcGUI extends JDialog {
     }
 
     public static void main(String[] args) {
-        HahaCalcGUI gui = new HahaCalcGUI();
-        gui.pack();
-        gui.setTitle("HahaCalc");
-        gui.setSize(350, 350);
+        Calculator calc = new Calculator();
+        calc.pack();
+        calc.setTitle("Calculator");
+        calc.setSize(350, 350);
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-        gui.setLocation(dim.width / 2 - gui.getSize().width / 2, dim.height / 2 - gui.getSize().height / 2);
-        gui.setVisible(true);
+        calc.setLocation(dim.width / 2 - calc.getSize().width / 2, dim.height / 2 - calc.getSize().height / 2);
+        calc.setVisible(true);
     }
 }
