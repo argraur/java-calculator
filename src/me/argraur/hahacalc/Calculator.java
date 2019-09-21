@@ -1,8 +1,8 @@
 package me.argraur.hahacalc;
 
 class Calculator extends GUI {
-    private String[] dec, symb;
-    private int curr;
+    private String[] dec = new String[10], symb = new String[10];
+    private int curr = 0;
 
     Calculator() {
         // GUI constructor
@@ -26,13 +26,9 @@ class Calculator extends GUI {
         plButton.addActionListener(actionEvent -> addSymbol("+"));
         eqButton.addActionListener(actionEvent -> result());
 
-        dec = new String[10];
-        symb = new String[10];
         for (int i = 0; i < 10; i++) {
-            dec[i] = "";
-            symb[i] = "";
+            dec[i] = ""; symb[i] = "";
         }
-        curr = 0;
     }
 
     private void addNumber(int a) {
@@ -54,36 +50,33 @@ class Calculator extends GUI {
     }
 
     private void result() {
-        float res = 0, first;
+        float res = 0, frs = Float.parseFloat(dec[0]);
         for (int i = 0; i < curr; i++) {
-            if (i == 0) first = Float.parseFloat(dec[i]); else first = res;
             switch (symb[i]) {
                 case "/":
                     if (Float.parseFloat(dec[i + 1]) == 0) { errorZero(); return; }
-                    res = first / Float.parseFloat(dec[i + 1]);
+                    res = frs / Float.parseFloat(dec[i + 1]);
                     break;
                 case "*":
-                    res = first * Float.parseFloat(dec[i + 1]);
+                    res = frs * Float.parseFloat(dec[i + 1]);
                     break;
                 case "-":
-                    res = first - Float.parseFloat(dec[i + 1]);
+                    res = frs - Float.parseFloat(dec[i + 1]);
                     break;
                 case "+":
-                    res = first + Float.parseFloat(dec[i + 1]);
+                    res = frs + Float.parseFloat(dec[i + 1]);
                     break;
             }
+            frs = res;
         }
         addText(" = " + res);
-        this.buttonLock(true);
+        buttonLock(true);
     }
 
     private void reset() {
-        this.buttonLock(false);
-        dec = new String[10];
-        symb = new String[10];
+        buttonLock(false);
         for (int i = 0; i < 10; i++) {
-            dec[i] = "";
-            symb[i] = "";
+            dec[i] = ""; symb[i] = "";
         }
         curr = 0;
         mathField.setText("");
@@ -95,6 +88,6 @@ class Calculator extends GUI {
 
     private void errorZero() {
         mathField.setText("Can't divide by zero!");
-        this.buttonLock(true);
+        buttonLock(true);
     }
 }
