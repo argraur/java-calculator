@@ -35,7 +35,7 @@ class MathTextBoxHelper {
     }
 
     void addZero() {
-        if (!dec[curr].equals("")) addNumber(0);
+        if (!dec[curr].equals("") || curr != 0) addNumber(0);
     }
 
     void result() {
