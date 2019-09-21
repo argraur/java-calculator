@@ -1,4 +1,4 @@
-package me.argraur.hahacalc;
+package me.argraur.calculator;
 
 class Calculator extends GUI {
     private String[] dec = new String[10], symb = new String[10];

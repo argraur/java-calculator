@@ -1,4 +1,4 @@
-package me.argraur.hahacalc;
+package me.argraur.calculator;
 
 import javax.swing.JPanel;
 import javax.swing.JDialog;
