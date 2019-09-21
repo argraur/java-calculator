@@ -70,11 +70,11 @@ class Calculator extends GUI {
             frs = res;
         }
         addText(" = " + res);
-        buttonLock(true);
+        buttonAvailable(true);
     }
 
     private void reset() {
-        buttonLock(false);
+        buttonAvailable(false);
         for (int i = 0; i < 10; i++) {
             dec[i] = ""; symb[i] = "";
         }
@@ -88,7 +88,7 @@ class Calculator extends GUI {
 
     private void errorZero() {
         mathField.setText("Can't divide by zero!");
-        buttonLock(true);
+        buttonAvailable(false);
     }
 
     public static void main(String[] args) {

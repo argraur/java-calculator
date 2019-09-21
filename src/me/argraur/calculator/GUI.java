@@ -47,21 +47,21 @@ public class GUI extends JDialog {
         setLocation(dim.width / 2 - getSize().width / 2, dim.height / 2 - getSize().height / 2);
     }
 
-    void buttonLock(boolean lock) {
-        a7Button.setEnabled(!lock);
-        a8Button.setEnabled(!lock);
-        a9Button.setEnabled(!lock);
-        divButton.setEnabled(!lock);
-        a4Button.setEnabled(!lock);
-        a5Button.setEnabled(!lock);
-        a6Button.setEnabled(!lock);
-        mpButton.setEnabled(!lock);
-        a1Button.setEnabled(!lock);
-        a2Button.setEnabled(!lock);
-        a3Button.setEnabled(!lock);
-        minButton.setEnabled(!lock);
-        a0Button.setEnabled(!lock);
-        eqButton.setEnabled(!lock);
-        plButton.setEnabled(!lock);
+    void buttonAvailable(boolean av) {
+        a7Button.setEnabled(av);
+        a8Button.setEnabled(av);
+        a9Button.setEnabled(av);
+        divButton.setEnabled(av);
+        a4Button.setEnabled(av);
+        a5Button.setEnabled(av);
+        a6Button.setEnabled(av);
+        mpButton.setEnabled(av);
+        a1Button.setEnabled(av);
+        a2Button.setEnabled(av);
+        a3Button.setEnabled(av);
+        minButton.setEnabled(av);
+        a0Button.setEnabled(av);
+        eqButton.setEnabled(av);
+        plButton.setEnabled(av);
     }
 }
