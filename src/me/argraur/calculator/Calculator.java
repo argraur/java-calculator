@@ -54,6 +54,7 @@ class Calculator extends GUI {
 
     private void addDot() {
         if (calc[curr][0].equals("")) addNumber(0);
+        if (calc[curr][0].endsWith(".")) return;
         calc[curr][0] = calc[curr][0] + ".";
         addText(".");
     }
