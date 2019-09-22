@@ -52,27 +52,34 @@ class Calculator extends GUI {
     }
 
     private void result() {
-        float res = 0, frs = Float.parseFloat(calc[0][0]);
-        for (int i = 0; i < curr; i++) {
-            switch (calc[i][1]) {
-                case "/":
-                    if (Float.parseFloat(calc[i + 1][0]) == 0) { errorZero(); return; }
-                    res = frs / Float.parseFloat(calc[i + 1][0]);
-                    break;
-                case "*":
-                    res = frs * Float.parseFloat(calc[i + 1][0]);
-                    break;
-                case "-":
-                    res = frs - Float.parseFloat(calc[i + 1][0]);
-                    break;
-                case "+":
-                    res = frs + Float.parseFloat(calc[i + 1][0]);
-                    break;
+        try {
+            float res = 0, frs = Float.parseFloat(calc[0][0]);
+            for (int i = 0; i < curr; i++) {
+                switch (calc[i][1]) {
+                    case "/":
+                        if (Float.parseFloat(calc[i + 1][0]) == 0) {
+                            errorOut("Can't divide by zero!");
+                            return;
+                        }
+                        res = frs / Float.parseFloat(calc[i + 1][0]);
+                        break;
+                    case "*":
+                        res = frs * Float.parseFloat(calc[i + 1][0]);
+                        break;
+                    case "-":
+                        res = frs - Float.parseFloat(calc[i + 1][0]);
+                        break;
+                    case "+":
+                        res = frs + Float.parseFloat(calc[i + 1][0]);
+                        break;
+                }
+                frs = res;
             }
-            frs = res;
+            addText(" = " + res);
+            buttonAvailable(false);
+        } catch (NumberFormatException nfe) {
+            errorOut("Error!");
         }
-        addText(" = " + res);
-        buttonAvailable(false);
     }
 
     private void reset() {
@@ -88,8 +95,8 @@ class Calculator extends GUI {
         mathField.setText(mathField.getText() + text);
     }
 
-    private void errorZero() {
-        mathField.setText("Can't divide by zero!");
+    private void errorOut(String err) {
+        mathField.setText(err);
         buttonAvailable(false);
     }
 
