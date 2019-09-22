@@ -52,7 +52,7 @@ class Calculator extends GUI {
     }
 
     private void result() {
-        float res = 0, frs = Float.parseFloat(calc[curr][0]);
+        float res = 0, frs = Float.parseFloat(calc[0][0]);
         for (int i = 0; i < curr; i++) {
             switch (calc[i][1]) {
                 case "/":
