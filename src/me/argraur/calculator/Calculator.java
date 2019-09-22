@@ -70,11 +70,11 @@ class Calculator extends GUI {
             frs = res;
         }
         addText(" = " + res);
-        buttonAvailable(true);
+        buttonAvailable(false);
     }
 
     private void reset() {
-        buttonAvailable(false);
+        buttonAvailable(true);
         for (int i = 0; i < 10; i++) {
             dec[i] = ""; symb[i] = "";
         }
