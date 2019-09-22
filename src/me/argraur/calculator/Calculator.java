@@ -27,6 +27,7 @@ class Calculator extends GUI {
         minButton.addActionListener(actionEvent -> addSymbol("-"));
         plButton.addActionListener(actionEvent -> addSymbol("+"));
         eqButton.addActionListener(actionEvent -> result());
+        dotButton.addActionListener(actionEvent -> addDot());
 
         for (int i = 0; i < 10; i++)
             for (int j = 0; j < 2; j++)
@@ -40,7 +41,7 @@ class Calculator extends GUI {
 
     private void addSymbol(String symb) {
         // Check if we don't place 2 symbols in a row
-        try { Integer.parseInt(calc[curr][0]); } catch (NumberFormatException e) { return; }
+        try { Float.parseFloat(calc[curr][0]); } catch (NumberFormatException e) { return; }
         // Add symbol to the textBox
         addText(" " + symb + " ");
         calc[curr][1] = symb;
@@ -51,6 +52,11 @@ class Calculator extends GUI {
         if (!calc[curr][0].equals("") || curr != 0) addNumber(0);
     }
 
+    private void addDot() {
+        if (calc[curr][0].equals("")) addNumber(0);
+        calc[curr][0] = calc[curr][0] + ".";
+        addText(".");
+    }
     private void result() {
         try {
             float res = 0, frs = Float.parseFloat(calc[0][0]);

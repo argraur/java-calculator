@@ -26,7 +26,8 @@ public class GUI extends JDialog {
                     divButton,
                     eqButton,
                     plButton,
-                    cButton;
+                    cButton,
+                    dotButton;
     public JTextField mathField;
 
     GUI() {
@@ -63,5 +64,6 @@ public class GUI extends JDialog {
         a0Button.setEnabled(av);
         eqButton.setEnabled(av);
         plButton.setEnabled(av);
+        dotButton.setEnabled(av);
     }
 }

@@ -144,7 +144,7 @@
           </component>
           <component id="7abfa" class="javax.swing.JButton" binding="a0Button" default-binding="true">
             <constraints>
-              <grid row="3" column="0" row-span="1" col-span="3" vsize-policy="2" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+              <grid row="3" column="0" row-span="1" col-span="2" vsize-policy="2" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <background color="-14869217"/>
@@ -180,6 +180,16 @@
               <background color="-14869217"/>
               <foreground color="-5987155"/>
               <text value="С"/>
+            </properties>
+          </component>
+          <component id="b648f" class="javax.swing.JButton" binding="dotButton">
+            <constraints>
+              <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-14869217"/>
+              <foreground color="-5987155"/>
+              <text value="."/>
             </properties>
           </component>
         </children>
